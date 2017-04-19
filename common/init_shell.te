@@ -96,10 +96,6 @@ allow qti_init_shell {
     sys_usb_configfs_prop
     #Needed for setting hwui properties in post_boot
     hwui_prop
-    #Needed for setting bservice in post_boot
-    bservice_prop
-    #Needed for setting Delayed Service Reschedule in post_boot
-    reschedule_service_prop
     graphics_vulkan_prop
     diag_mdlog_prop
 }:property_service set;
@@ -201,3 +197,5 @@ allow qti_init_shell sysfs_zram:file w_file_perms;
 
 # To get GPU frequencies
 allow qti_init_shell sysfs_kgsl:file r_file_perms;
+
+set_prop(qti_init_shell, detect_prop)
